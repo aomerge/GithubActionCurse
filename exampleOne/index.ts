@@ -1,0 +1,1 @@
+console.log("Hola soy una prueva de TypeScript!");
