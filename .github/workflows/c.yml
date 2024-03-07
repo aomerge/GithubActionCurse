@@ -49,7 +49,12 @@ jobs:
       - name: variables
         run: |
            echo "USERNAME=${{ github.event.inputs.name }}" >> $GITHUB_ENV
-           echo "FAVORITE_LANGUAGE=${{ github.event.inputs.FavoriteLenguage }}" >> $GITHUB_ENV      
+           echo "FAVORITE_LANGUAGE=${{ github.event.inputs.FavoriteLenguage }}" >> $GITHUB_ENV  
+      - name: Print environment variables
+        run: |
+            echo "USERNAME=$USERNAME"
+            echo "FAVORITE_LANGUAGE=$FAVORITE_LANGUAGE"
+        
       - name: Install dependencies
         run: |
           cd exampleThree
