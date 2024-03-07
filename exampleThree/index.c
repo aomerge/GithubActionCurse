@@ -6,7 +6,7 @@ int main() {
     char*valueLenguage = getenv("FAVORITE_LANGUAGE");
     
     if (valueName != NULL && valueLenguage != NULL) {
-        printf("Hello, %s\n", valueName, valueLenguage);
+         printf("El valor de %s es \n",  valueName, valueLenguage);
     }
     else {
         for (size_t i = 0; i < 5; i++)
