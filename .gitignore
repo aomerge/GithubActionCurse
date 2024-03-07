@@ -8,3 +8,9 @@ exampleTwo/testAction/
 # C extensions
 /exampleThree/output/
 
+**/[Bb]in/
+**/[Oo]bj/
+
+# Ignorar archivos de configuración del usuario de Visual Studio
+**/*.user
+**/*.useros
