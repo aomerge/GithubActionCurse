@@ -5,7 +5,7 @@ run-name: run test csharp in github actions
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: ["main"]
+    branches: ["main"]    
   pull_request:
     branches: ["main"]
 
@@ -29,7 +29,10 @@ jobs:
         with:
             # Optional SDK version(s) to use. If not provided, will install global.json version when available. Examples: 2.2.104, 3.1, 3.1.x, 3.x, 6.0.2xx
             dotnet-version: 8.0.100
-          
+      - name: deffine env
+        run: echo "the value of NAME is $NAME"
+        env:
+          NAME: ${{secrets.NAME}}
 
       - name: Build
         run: |
