@@ -48,8 +48,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: variables
         run: |
-           echo "USERNAME=${{ github.event.inputs.name }}" >> $GITHUB_ENV
-           echo "FAVORITE_LANGUAGE=${{ github.event.inputs.FavoriteLenguage }}" >> $GITHUB_ENV  
+            echo "USERNAME=${{ github.event.inputs.name }}" >> $GITHUB_ENV
+            echo "FAVORITE_LANGUAGE=${{ github.event.inputs.FavoriteLenguage }}" >> $GITHUB_ENV
       - name: Print environment variables
         run: |
             echo "USERNAME=$USERNAME"
