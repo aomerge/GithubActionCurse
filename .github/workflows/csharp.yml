@@ -32,7 +32,7 @@ jobs:
       - name: deffine env
         run: echo "the value of NAME is $NAME"
         env:
-          NAME: ${{secrets.NAME}}
+          NAME: ${{github.secret_source.NAME}}
 
       - name: Build
         run: |
