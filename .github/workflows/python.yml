@@ -21,10 +21,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2      
+      - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: "3.11"              
+          python-version: "3.11"
+        # deffining the variables
+      - name: deffining the variables
+        run: echo "USERNAME= ${{ github.actor }}" >> $GITHUB_ENV
 
       # Runs a single command using the runners shell
       - name: Create and activate virtual environment
@@ -42,4 +45,4 @@ jobs:
       - name: Run tests
         run: |
           cd exampleTwo
-          Python index.py
+          python index.py
