@@ -28,7 +28,7 @@ jobs:
         uses: EasyDesk/action-dotnet-build@v1.0.0
         with:            
             build-configuration: Debug
-            path: ./helloWorld.sln
+            path: ./exampleForth/helloWorld/helloWorld.sln
 
       - name: Build
         run: |
