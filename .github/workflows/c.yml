@@ -1,0 +1,85 @@
+name: C Build
+run-name: Program to compile and run a C program
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+    types: [opened, synchronize, reopened]
+    paths:
+      - "exampleThree/**"
+  issues:
+    types: [labeled]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      FavoriteLenguage:
+        description: "Select your favorite programming language"
+        required: true
+        default: C
+        type: choice
+        options:
+          - C
+          - javascript
+          - python
+          - java
+          - go
+      name:
+        description: "Enter your name"
+        required: true
+        default: "John Doe"
+        type: string
+  schedule:
+    - cron: "15 22 * * *"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  hello_world_job:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Name defined in the workflow file
+        run: echo "USERNAME=${{inputs.name}}" >> $GITHUB_ENV
+      - name: Favorite language defined in the workflow file
+        run: echo "FAVORITE_LANGUAGE=${{inputs.FavoriteLenguage}}" >> $GITHUB_ENV
+      - name: Install dependencies
+        run: |
+          cd exampleThree
+          sudo apt-get update 
+          sudo apt-get install -y build-essential
+
+      - name: Compile
+        run: |
+          cd exampleThree
+          gcc index.c -o output/index
+          ./output/index
+
+  helloWorld:
+    # The type of runner that the job will run on
+    if: ${{ github.event_name != 'workflow_dispatch'}}
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          cd exampleThree
+          sudo apt-get update 
+          sudo apt-get install -y build-essential
+
+      - name: Compile
+        run: |
+          cd exampleThree
+          gcc helloWorld.c -o output/helloWorld
+          ./output/helloWorld

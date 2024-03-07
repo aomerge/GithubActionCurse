@@ -1,7 +1,10 @@
+# node.js
 /exampleOne/node_modules
-# Byte-compiled / optimized / DLL files
+# Phyton
 /exampleTwo/testAction/*.py[cod]
 /exampleTwo/testAction/*$py.class
+exampleTwo/testAction/
 
 # C extensions
-exampleTwo/testAction/
+/exampleThree/output/
+
