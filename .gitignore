@@ -1,1 +1,7 @@
 /exampleOne/node_modules
+# Byte-compiled / optimized / DLL files
+/exampleTwo/testAction/*.py[cod]
+/exampleTwo/testAction/*$py.class
+
+# C extensions
+exampleTwo/testAction/
