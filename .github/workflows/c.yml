@@ -46,10 +46,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Name defined in the workflow file
-        run: echo "USERNAME=${{inputs.name}}" >> $GITHUB_ENV
-      - name: Favorite language defined in the workflow file
-        run: echo "FAVORITE_LANGUAGE=${{inputs.FavoriteLenguage}}" >> $GITHUB_ENV
+      - name: variables
+        run: |
+           echo "USERNAME=${{ github.event.inputs.name }}" >> $GITHUB_ENV
+           echo "FAVORITE_LANGUAGE=${{ github.event.inputs.FavoriteLenguage }}" >> $GITHUB_ENV      
       - name: Install dependencies
         run: |
           cd exampleThree
