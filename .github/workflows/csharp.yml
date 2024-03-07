@@ -23,9 +23,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
+
+      - name: .Net Build
+        uses: EasyDesk/action-dotnet-build@v1.0.0
         with:
-          dotnet-version: '8.0.1'      
+            build-args: /p:DefineConstants=MY_CONSTANT
+            build-configuration: Debug
+            path: ./helloWorld.sln
 
       - name: Build
         run: |
@@ -38,7 +42,7 @@ jobs:
             cd exampleForth
             cd helloWorld
             dotnet run helloWorld.csproj
-            
+
       - name: Start Change Env
         run: |
             cd exampleForth
