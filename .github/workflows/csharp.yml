@@ -36,18 +36,18 @@ jobs:
             cd exampleForth
             cd HelloWorld
             ls
-            dotnet build helloWorld.csproj
+            dotnet build HelloWorld.csproj
 
       - name: start
         run: |
             cd exampleForth
             cd HelloWorld
-            dotnet run helloWorld.csproj
+            dotnet run HelloWorld.csproj
 
       - name: Start Change Env
         run: |
             cd exampleForth
             cd HelloWorld
-            dotnet run helloWorld.csproj
+            dotnet run HelloWorld.csproj
         env:
           NAME: csharp
