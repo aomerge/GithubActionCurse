@@ -45,16 +45,20 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
       - uses: actions/checkout@v2
       - name: variables
         run: |
-            echo "USERNAME=${{ github.event.inputs.name }}" >> $GITHUB_ENV
-            echo "FAVORITE_LANGUAGE=${{ github.event.inputs.FavoriteLenguage }}" >> $GITHUB_ENV
+          echo "USERNAME=${{ inputs.name }}" >> $GITHUB_ENV
+          echo "FAVORITE_LANGUAGE=${{ inputs.FavoriteLenguage }}" >> $GITHUB_ENV
       - name: Print environment variables
         run: |
-            echo "USERNAME=$USERNAME"
-            echo "FAVORITE_LANGUAGE=$FAVORITE_LANGUAGE"
-        
+          echo "USERNAME=$USERNAME"
+          echo "FAVORITE_LANGUAGE=$FAVORITE_LANGUAGE"
+          env:
+            USERNAME: ${{ inputs.name }}
+            FAVORITE_LANGUAGE: ${{ inputs.FavoriteLenguage }}
+
       - name: Install dependencies
         run: |
           cd exampleThree
@@ -79,7 +83,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: variables
         run: |
-          echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV          
+          echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: |
