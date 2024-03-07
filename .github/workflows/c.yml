@@ -18,8 +18,8 @@ on:
     inputs:
       FavoriteLenguage:
         description: "Select your favorite programming language"
-        required: true
         default: 'C'
+        required: true
         type: choice
         options:
         - C
@@ -27,10 +27,10 @@ on:
         - python
         - java
         - go
-      name:
+      nameUser:
         description: "Enter your name"
-        required: true
         default: 'John Doe'
+        required: true
         type: string
   schedule:
     - cron: "15 22 * * *"
@@ -49,13 +49,13 @@ jobs:
           echo "UserName: $USERNAME"
           echo "FavoriteLenguage: $FAVORITE_LANGUAGE"          
         env:
-          USERNAME: ${{ inputs.name }}
+          USERNAME: ${{ inputs.nameUser }}
           FAVORITE_LANGUAGE: ${{ inputs.FavoriteLenguage }}
 
       - uses: actions/checkout@v2
       - name: variables
         run: |
-          echo "USERNAME=${{ inputs.name }}" >> $GITHUB_ENV
+          echo "USERNAME=${{ inputs.nameUser }}" >> $GITHUB_ENV
           echo "FAVORITE_LANGUAGE=${{ inputs.FavoriteLenguage }}" >> $GITHUB_ENV
       - name: Print environment variables
         run: |
