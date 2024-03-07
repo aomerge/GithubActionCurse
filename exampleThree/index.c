@@ -5,7 +5,7 @@ int main() {
     char *valueName = getenv("USERNAME");
     char*valueLenguage = getenv("FAVORITE_LANGUAGE");    
     
-    if (valueName != NULL && valueLenguage != NULL) {
+    if (valueName != NULL && valueLenguage != NULL && strlen(valueName) > 0 && strlen(valueLenguage) > 0) {
          printf("Los números son: %s y %s\n", valueName, valueLenguage);
     }
     else {
