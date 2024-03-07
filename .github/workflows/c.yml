@@ -19,7 +19,7 @@ on:
       FavoriteLenguage:
         description: "Select your favorite programming language"
         required: true
-        default: C
+        default: 'C'
         type: choice
         options:
         - C
@@ -30,7 +30,7 @@ on:
       name:
         description: "Enter your name"
         required: true
-        default: "John Doe"
+        default: 'John Doe'
         type: string
   schedule:
     - cron: "15 22 * * *"
@@ -46,8 +46,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - run: |
-          echo "Log level: $USERNAME"
-          echo "Tags: $FAVORITE_LANGUAGE"          
+          echo "UserName: $USERNAME"
+          echo "FavoriteLenguage: $FAVORITE_LANGUAGE"          
         env:
           USERNAME: ${{ inputs.name }}
           FAVORITE_LANGUAGE: ${{ inputs.FavoriteLenguage }}
