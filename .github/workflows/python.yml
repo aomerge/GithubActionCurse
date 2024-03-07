@@ -41,5 +41,5 @@ jobs:
 
       - name: Run tests
         run: |
-          exampleTwo
+          cd exampleTwo
           Python index.py
