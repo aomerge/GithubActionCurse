@@ -45,6 +45,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+          echo "Environment: $ENVIRONMENT"
+        env:
+          USERNAME: ${{ inputs.name }}
+          FAVORITE_LANGUAGE: ${{ inputs.FavoriteLenguage }}
 
       - uses: actions/checkout@v2
       - name: variables
@@ -55,9 +62,6 @@ jobs:
         run: |
           echo "USERNAME=$USERNAME"
           echo "FAVORITE_LANGUAGE=$FAVORITE_LANGUAGE"
-          env:
-            USERNAME: ${{ inputs.name }}
-            FAVORITE_LANGUAGE: ${{ inputs.FavoriteLenguage }}
 
       - name: Install dependencies
         run: |
