@@ -3,15 +3,15 @@
 
 int main() {
     char *valueName = getenv("USERNAME");
-    char*valueLenguage = getenv("FAVORITE_LANGUAGE");
+    char*valueLenguage = getenv("FAVORITE_LANGUAGE");    
     
     if (valueName != NULL && valueLenguage != NULL) {
-         printf("El valor de %s es \n",  valueName, valueLenguage);
+         printf("Los números son: %s y %s\n", valueName, valueLenguage);
     }
     else {
         for (size_t i = 0; i < 5; i++)
         {        
-            printf("Hello, World!\n");
+            printf("Hello, World!%s\n ", valueName);
         }
     }
 
