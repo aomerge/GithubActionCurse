@@ -59,6 +59,7 @@ jobs:
       - name: Compile
         run: |
           cd exampleThree
+          mkdir -p output
           gcc index.c -o output/index
           ./output/index
 
@@ -81,5 +82,6 @@ jobs:
       - name: Compile
         run: |
           cd exampleThree
+          mkdir -p output
           gcc helloWorld.c -o output/helloWorld
           ./output/helloWorld
